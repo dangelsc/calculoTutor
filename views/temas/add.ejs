@@ -1,0 +1,56 @@
+
+<% layout('../layout/index') -%>
+
+<%block('titulo',titulo) -%>
+<div class="card-header bg-white border-0">
+        
+      </div>
+      <div class="card-body">
+        <form action="/temas/<%=edit?'edit':'create'%>" method="POST">
+          <h6 class="heading-small text-muted mb-4">Datos del tema </h6>
+          <div class="pl-lg-4">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-username">Titulo</label>
+                  <input type="text" name="titulo" id="input-username" class="form-control form-control-alternative" placeholder="Titulo" value="<%=dato.titulo%>">
+                </div>
+                <div class="form-group">
+                        <label class="form-control-label" for="input-dif">Dificultad</label>
+                        
+                        <div class="custom-control custom-radio">
+                                <input type="radio" name="dificultad" class="custom-control-input" value="a" <%=dato.dificultad=='a'?'checked':''%> id="customControlValidation0"  required>
+                                <label class="custom-control-label" for="customControlValidation0">Alto</label>
+                              </div>
+                            
+                              <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="customControlValidation1" value="m" <%=dato.dificultad=='m'?'checked':''%> name="dificultad" required>
+                                <label class="custom-control-label" for="customControlValidation1">Medio</label>
+                              </div>
+                              <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation2" value="b" <%=dato.dificultad=='b'?'checked':''%> name="dificultad" required>
+                                    <label class="custom-control-label" for="customControlValidation2">Bajo</label>
+                                  </div>
+
+                      </div>
+              </div>
+            </div>
+           
+            
+            <div class="row">
+                    
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="form-control-label" for="input-contenido">Contenido</label>
+                        
+                        <textarea name="contenido" id="input-contenido" cols="30" rows="5" class="form-control form-control-alternative"><%=dato.contenido%></textarea>
+                    </div>
+              
+              </div>
+            
+            </div>
+            </div>
+            <a href="/temas/" class="btn btn-sm btn-warning">Cancelar</a>
+         <button class="btn btn-sm btn-primary"><%=edit?'Editar':'Crear'%></button>
+        </form>
+      </div>
